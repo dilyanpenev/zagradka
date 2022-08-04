@@ -24,4 +24,23 @@
             }
         }
     }
+
+    .guess-footer {
+        @include space-between;
+        @include spacing-standard;
+        border-top: 1px solid black;
+        padding-top: 2.5vh;
+        padding-bottom: 2.5vh;
+        position: absolute;
+        bottom: 0;
+        width: 90%;
+
+        .city-input-wrapper {
+            width: 80%;
+        }
+
+        .enter-button {
+            width: 10%;
+        }
+    }
 }
