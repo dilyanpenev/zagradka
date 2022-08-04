@@ -1,0 +1,9 @@
+@mixin space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin spacing-standard {
+    margin: 0 2.5%;
+    padding: 1vh 2.5%;
+}

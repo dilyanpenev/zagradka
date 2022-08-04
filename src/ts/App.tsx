@@ -1,22 +1,13 @@
 import React from 'react';
 import '../scss/App.scss';
+import HeaderBanner from './components/HeaderBanner';
+import GameView from './views/GameView';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload. Prac
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HeaderBanner />
+      <GameView />
     </div>
   );
 }
