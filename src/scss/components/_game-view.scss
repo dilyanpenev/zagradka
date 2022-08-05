@@ -25,6 +25,50 @@
         }
     }
 
+    .guess-list-wrapper {
+        @include spacing-standard;
+
+        .guess-item {
+            margin-bottom: 2.5vh;
+
+            &__title {
+                display: block;
+                text-align: center;
+            }
+
+            &__score-list {
+                @include space-between;
+                padding-top: 0.5vh;
+
+                .score-item-wrapper {
+                    height: 7.5vh;
+                    width: 19%;
+                    background-color: red;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &.correct {
+                        background-color: green;
+                    }
+
+                    &.nearly {
+                        background-color: yellow;
+                    }
+
+                    span {
+                        display: block;
+                        font-size: 10px;
+                        font-weight: bold;
+                        word-break: normal;
+                        color: white;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
     .guess-footer {
         @include space-between;
         @include spacing-standard;

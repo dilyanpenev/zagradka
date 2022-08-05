@@ -3,3 +3,15 @@ export interface CityFeatureProps {
     altText: string,
     featureName: string
 }
+
+export interface GuessItemProps {
+    guessIndex: number,
+    cityName: string,
+    score: number[],
+    guessAttributes: string[]
+}
+
+export interface ScoreItemProps {
+    title: string,
+    isCorrect: number
+}
