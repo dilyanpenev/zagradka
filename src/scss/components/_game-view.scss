@@ -4,7 +4,7 @@
     .city-feature-banner {
         @include space-between;
         @include spacing-standard;
-        height: 15vh;
+        height: 10vh;
 
         .city-feature {
             display: flex;
@@ -27,6 +27,9 @@
 
     .guess-list-wrapper {
         @include spacing-standard;
+        overflow-y: scroll;
+        height: 65vh;
+        padding-top: 2.5vh;
 
         .guess-item {
             margin-bottom: 2.5vh;
