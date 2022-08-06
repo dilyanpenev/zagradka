@@ -3,6 +3,6 @@
 .site-header {
     @include space-between;
     @include spacing-standard;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid $dark;
   }
   

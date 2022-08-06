@@ -4,6 +4,7 @@
     .city-feature-banner {
         @include space-between;
         @include spacing-standard;
+        justify-content: space-around;
         height: 10vh;
 
         .city-feature {
@@ -46,17 +47,17 @@
                 .score-item-wrapper {
                     height: 7.5vh;
                     width: 19%;
-                    background-color: red;
+                    background-color: $red;
                     display: flex;
                     align-items: center;
                     justify-content: center;
 
                     &.correct {
-                        background-color: green;
+                        background-color: $green;
                     }
 
                     &.nearly {
-                        background-color: yellow;
+                        background-color: $yellow;
                     }
 
                     span {
@@ -64,7 +65,7 @@
                         font-size: 10px;
                         font-weight: bold;
                         word-break: normal;
-                        color: white;
+                        color: $white;
                         text-align: center;
                     }
                 }
@@ -75,7 +76,7 @@
     .guess-footer {
         @include space-between;
         @include spacing-standard;
-        border-top: 1px solid black;
+        border-top: 1px solid $dark;
         padding-top: 2.5vh;
         padding-bottom: 2.5vh;
         position: absolute;
@@ -88,6 +89,8 @@
 
         .enter-button {
             width: 10%;
+            background-color: $dark;
+            color: $white;
         }
     }
 }
