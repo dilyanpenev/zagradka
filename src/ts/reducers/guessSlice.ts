@@ -30,5 +30,6 @@ export const { markSuccess, addNewGuess } = guessSlice.actions;
 
 export const selectCount = (state: RootState) => state.guesses.guessList.length;
 export const selectGuessList = (state: RootState) => state.guesses.guessList;
+export const selectIsCorrect = (state: RootState) => state.guesses.isCorrect;
 
 export default guessSlice.reducer;

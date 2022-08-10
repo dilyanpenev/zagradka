@@ -1,6 +1,6 @@
 import React from 'react';
 import CityFeatureBanner from '../components/CityFeatureBanner';
-import GuessFooter from '../components/GuessFooter';
+import GameFooter from '../components/GameFooter';
 import GuessListWrapper from '../components/GuessListWrapper';
 
 const GameView = () => {
@@ -8,7 +8,7 @@ const GameView = () => {
         <div className="game-view-wrapper">
             <CityFeatureBanner />
             <GuessListWrapper />
-            <GuessFooter />
+            <GameFooter />
         </div>
     );
 }

@@ -73,7 +73,7 @@
         }
     }
 
-    .guess-footer {
+    .game-footer {
         @include space-between;
         @include spacing-standard;
         border-top: 1px solid $dark;
@@ -95,6 +95,11 @@
             width: 10%;
             background-color: $dark;
             color: $white;
+        }
+
+        .success-banner {
+            text-align: center;
+            width: 100%;
         }
     }
 }
