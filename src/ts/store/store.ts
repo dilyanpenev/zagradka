@@ -1,8 +1,10 @@
 
 import { configureStore } from '@reduxjs/toolkit';
+import guessSlice from '../reducers/guessSlice';
 
 export const store = configureStore({
     reducer: {
+        guesses: guessSlice,
     },
 });
 
