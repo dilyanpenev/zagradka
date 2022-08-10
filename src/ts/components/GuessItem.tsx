@@ -1,8 +1,12 @@
 import React, { FC } from 'react';
-import { GuessItemProps } from '../types/props-interfaces';
 import ScoreItem from './ScoreItem';
+import { IGuessItem } from '../types/general-interfaces';
 
-const GuessItem: FC<GuessItemProps> = ({ guessIndex, cityName, score, guessAttributes }) => {
+interface IElement {
+    guessIndex: number
+}
+
+const GuessItem: FC<IElement & IGuessItem> = ({ guessIndex, cityName, score, guessAttributes }) => {
     return (
         <div className="guess-item">
             <span className="guess-item__title">{guessIndex}. {cityName}</span>

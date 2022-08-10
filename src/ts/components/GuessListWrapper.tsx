@@ -1,26 +1,16 @@
 import React from 'react';
-import { GuessItemProps } from '../types/props-interfaces';
 import GuessItem from './GuessItem';
+import { useAppSelector } from '../hooks/storeHooks';
+import { selectGuessList } from '../reducers/guessSlice';
 
 const GuessListWrapper = () => {
-    const guessList: GuessItemProps[] = [
-        { guessIndex: 1, cityName: "Айтос", score: [1, 1, 0, 0, 0], guessAttributes: ["Югоизточен", "Бургас", "258", "има", "89 км"] },
-        { guessIndex: 2, cityName: "Угърчин", score: [0, 0, 1, 1, 0], guessAttributes: ["Северен централен", "Ловеч", "112", "няма", "200 км"] },
-        { guessIndex: 2, cityName: "Угърчин", score: [0, 0, 1, 1, 0], guessAttributes: ["Северен централен", "Ловеч", "112", "няма", "200 км"] },
-        { guessIndex: 2, cityName: "Угърчин", score: [0, 0, 1, 1, 0], guessAttributes: ["Северен централен", "Ловеч", "112", "няма", "200 км"] },
-        { guessIndex: 2, cityName: "Угърчин", score: [0, 0, 1, 1, 0], guessAttributes: ["Северен централен", "Ловеч", "112", "няма", "200 км"] },
-        { guessIndex: 2, cityName: "Угърчин", score: [0, 0, 1, 1, 0], guessAttributes: ["Северен централен", "Ловеч", "112", "няма", "200 км"] },
-        { guessIndex: 2, cityName: "Угърчин", score: [0, 0, 1, 1, 0], guessAttributes: ["Северен централен", "Ловеч", "112", "няма", "200 км"] },
-        { guessIndex: 2, cityName: "Угърчин", score: [0, 0, 1, 1, 0], guessAttributes: ["Северен централен", "Ловеч", "112", "няма", "200 км"] },
-        { guessIndex: 2, cityName: "Угърчин", score: [0, 0, 1, 1, 0], guessAttributes: ["Северен централен", "Ловеч", "112", "няма", "200 км"] },
-        { guessIndex: 2, cityName: "Угърчин", score: [0, 0, 1, 1, 0], guessAttributes: ["Северен централен", "Ловеч", "112", "няма", "200 км"] },
-    ];
+    const guessList = useAppSelector(selectGuessList)
 
     return (
         <div className="guess-list-wrapper">
             {guessList.map((guessObject, index) => {
                 return <GuessItem key={index}
-                    guessIndex={guessObject.guessIndex}
+                    guessIndex={index + 1}
                     cityName={guessObject.cityName}
                     score={guessObject.score}
                     guessAttributes={guessObject.guessAttributes}
