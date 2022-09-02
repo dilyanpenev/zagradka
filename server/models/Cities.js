@@ -24,5 +24,14 @@ const CitySchema = new mongoose.Schema({
     },
 });
 
+// Duplicate the ID field.
+CitySchema.virtual('id').get(function () {
+    return this._id.toHexString();
+});
+
+CitySchema.set('toJSON', {
+    virtuals: true
+});
+
 const CityModel = mongoose.model(config.cityCollectionName, CitySchema);
 module.exports = CityModel;
