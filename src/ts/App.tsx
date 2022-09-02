@@ -1,13 +1,26 @@
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react';
 import '../scss/App.scss';
+import { getTodaysCity } from './helpers/api';
+import { useAppDispatch } from './hooks/storeHooks';
+import { setTodaysAnswer } from './reducers/answerSlice';
 import HeaderBanner from './components/HeaderBanner';
-import GameView from './views/GameView';
+import Wrapper from './views/Wrapper';
 
 const App = () => {
+  const dispatch = useAppDispatch()
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getTodaysCity();
+      dispatch(setTodaysAnswer(data.id.toString()));
+    }
+    fetchData();
+  }, []);
+
   return (
     <div className="App">
       <HeaderBanner />
-      <GameView />
+      <Wrapper />
     </div>
   );
 }

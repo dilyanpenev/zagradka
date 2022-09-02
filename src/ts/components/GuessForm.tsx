@@ -29,7 +29,7 @@ const GuessForm = () => {
                     disablePortal
                     id="city-input-box"
                     value={cityValue}
-                    onChange={(event: any, newValue: ICity | null) => {
+                    onChange={(_event: any, newValue: ICity | null) => {
                         selectCity(newValue);
                     }}
                     options={BulgarianCities}
