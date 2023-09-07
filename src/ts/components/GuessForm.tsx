@@ -36,6 +36,21 @@ const GuessForm = () => {
         }
     }
 
+    const prepareStringValues = (feature: any, valueType: string) => {
+        switch (valueType) {
+            case "REGION":
+            case "OBLAST":
+                return feature;
+            case "RAILWAY":
+                return feature ? "има" : "няма";
+            case "POPULATION":
+            case "ALTITUDE":
+                return feature.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            default:
+                return feature;
+        }
+    }
+
     const handleSubmit = async (event: FormEvent) => {
         event.preventDefault();
         if (cityValue !== null) {
@@ -47,7 +62,11 @@ const GuessForm = () => {
                 compareValues(answerCity?.population, features.population, "POPULATION"),
                 compareValues(answerCity?.railway, features.railway, "RAILWAY"),
                 compareValues(answerCity?.altitude, features.altitude, "ALTITUDE")],
-                guessAttributes: [features.region, features.oblast, features.population.toString(), features.railway.toString(), features.altitude.toString()]
+                guessAttributes: [prepareStringValues(features.region, "REGION"),
+                prepareStringValues(features.oblast, "OBLAST"),
+                prepareStringValues(features.population, "POPULATION"),
+                prepareStringValues(features.railway, "RAILWAY"),
+                prepareStringValues(features.altitude, "ALTITUDE")]
             }));
             selectCity(null);
             if (compareValues(answerCity?.name, cityValue.label, "NAME") === 1) {
