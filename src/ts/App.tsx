@@ -12,7 +12,7 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getTodaysCity();
-      dispatch(setTodaysAnswer(data.id.toString()));
+      dispatch(setTodaysAnswer(data));
     }
     fetchData();
   }, []);

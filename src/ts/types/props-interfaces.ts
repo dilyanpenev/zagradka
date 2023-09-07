@@ -6,5 +6,5 @@ export interface CityFeatureProps {
 
 export interface ScoreItemProps {
     title: string,
-    isCorrect: number
+    isCorrect: boolean
 }

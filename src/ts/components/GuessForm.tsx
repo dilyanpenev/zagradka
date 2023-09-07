@@ -2,18 +2,30 @@ import React, { FormEvent } from 'react';
 import { Button, Box, Autocomplete, TextField } from '@mui/material';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import { BulgarianCities } from '../constants/city-names';
-import { useAppDispatch } from '../hooks/storeHooks';
+import { useAppSelector, useAppDispatch } from '../hooks/storeHooks';
+import { getCityFeatures } from '../helpers/api';
+import { selectAnswerId } from '../reducers/answerSlice';
 import { addNewGuess, markSuccess } from '../reducers/guessSlice';
 import type { ICity } from '../types/general-interfaces';
 
 const GuessForm = () => {
     const dispatch = useAppDispatch()
     const [cityValue, selectCity] = React.useState<ICity | null>(null);
+    const answerCity = useAppSelector(selectAnswerId)
 
-    const handleSubmit = (event: FormEvent) => {
+    const handleSubmit = async (event: FormEvent) => {
         event.preventDefault();
         if (cityValue !== null) {
-            dispatch(addNewGuess({ cityName: cityValue.label, score: [0, 0, 0, 0, 0], guessAttributes: ["edno", "dve", "tri", "chetiri", "pet"] }));
+            const features = await getCityFeatures(cityValue.label);
+            dispatch(addNewGuess({
+                cityName: cityValue.label,
+                score: [features.region === answerCity?.region,
+                features.oblast === answerCity?.oblast,
+                features.population === answerCity?.population,
+                features.railway === answerCity?.railway,
+                features.altitude === answerCity?.altitude],
+                guessAttributes: [features.region, features.oblast, features.population.toString(), features.railway.toString(), features.altitude.toString()]
+            }));
             selectCity(null);
             // Select the first city as the correct one for testing purposes
             if (cityValue.id === 1) {
