@@ -1,6 +1,6 @@
 export interface IGuessItem {
     cityName: string,
-    score: boolean[],
+    score: number[],
     guessAttributes: string[]
 }
 
@@ -18,7 +18,7 @@ export interface IFeatures {
 }
 
 export interface ICityRecord {
-    label: string,
+    name: string,
     oblast: string,
     region: string,
     population: number,

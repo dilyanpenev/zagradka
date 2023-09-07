@@ -13,22 +13,44 @@ const GuessForm = () => {
     const [cityValue, selectCity] = React.useState<ICity | null>(null);
     const answerCity = useAppSelector(selectAnswerId)
 
+    const compareValues = (answer: any, guess: any, valueType: string) => {
+        switch (valueType) {
+            case "NAME":
+            case "REGION":
+            case "OBLAST":
+            case "RAILWAY":
+                return guess === answer ? 1 : 0;
+            case "POPULATION":
+            case "ALTITUDE":
+                if (guess === answer) {
+                    return 1;
+                }
+                else if (guess >= 0.8 * answer && guess <= 1.2 * answer) {
+                    return 2;
+                }
+                else {
+                    return 0;
+                }
+            default:
+                return 0;
+        }
+    }
+
     const handleSubmit = async (event: FormEvent) => {
         event.preventDefault();
         if (cityValue !== null) {
             const features = await getCityFeatures(cityValue.label);
             dispatch(addNewGuess({
                 cityName: cityValue.label,
-                score: [features.region === answerCity?.region,
-                features.oblast === answerCity?.oblast,
-                features.population === answerCity?.population,
-                features.railway === answerCity?.railway,
-                features.altitude === answerCity?.altitude],
+                score: [compareValues(answerCity?.region, features.region, "REGION"),
+                compareValues(answerCity?.oblast, features.oblast, "OBLAST"),
+                compareValues(answerCity?.population, features.population, "POPULATION"),
+                compareValues(answerCity?.railway, features.railway, "RAILWAY"),
+                compareValues(answerCity?.altitude, features.altitude, "ALTITUDE")],
                 guessAttributes: [features.region, features.oblast, features.population.toString(), features.railway.toString(), features.altitude.toString()]
             }));
             selectCity(null);
-            // Select the first city as the correct one for testing purposes
-            if (cityValue.id === 1) {
+            if (compareValues(answerCity?.name, cityValue.label, "NAME") === 1) {
                 dispatch(markSuccess());
             }
         }
