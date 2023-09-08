@@ -11,4 +11,4 @@ A Wordle-like game about cities and towns in Bulgaria
 
 <a href="https://www.flaticon.com/free-icons/rail" title="rail icons">Rail icons created by Smashicons - Flaticon</a>
 
-<a href="https://www.flaticon.com/free-icons/road" title="road icons">Road icons created by Those Icons - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/altitude" title="altitude icons">Altitude icons created by orvipixel - Flaticon</a>
