@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react';
+import React, { FC, FormEvent } from 'react';
 import { Button, Box, Autocomplete, TextField } from '@mui/material';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import { BulgarianCities } from '../constants/city-names';
@@ -7,8 +7,9 @@ import { getCityFeatures } from '../helpers/api';
 import { selectAnswerId } from '../reducers/answerSlice';
 import { addNewGuess, markSuccess } from '../reducers/guessSlice';
 import type { ICity } from '../types/general-interfaces';
+import { IRefProp } from '../types/props-interfaces';
 
-const GuessForm = () => {
+const GuessForm: FC<IRefProp> = ({ scrollRef }) => {
     const dispatch = useAppDispatch()
     const [cityValue, selectCity] = React.useState<ICity | null>(null);
     const answerCity = useAppSelector(selectAnswerId)
@@ -68,6 +69,12 @@ const GuessForm = () => {
                 prepareStringValues(features.railway, "RAILWAY"),
                 prepareStringValues(features.altitude, "ALTITUDE")]
             }));
+            setTimeout(() => {
+                scrollRef.current?.scrollTo({
+                    top: scrollRef.current?.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }, 500);
             selectCity(null);
             if (compareValues(answerCity?.name, cityValue.label, "NAME") === 1) {
                 dispatch(markSuccess());
