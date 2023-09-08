@@ -4,6 +4,7 @@ import { getCurrentView } from '../reducers/viewSlice';
 import { Views } from '../constants/reducer-enums';
 import LoadingView from './LoadingView';
 import GameView from './GameView';
+import HelpView from './HelpView';
 
 const Wrapper = () => {
     const currentView = useAppSelector(getCurrentView);
@@ -20,6 +21,13 @@ const Wrapper = () => {
             return (
                 <Fragment>
                     <GameView />
+                </Fragment>
+            );
+
+        case Views.HELP:
+            return (
+                <Fragment>
+                    <HelpView />
                 </Fragment>
             );
 

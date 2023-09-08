@@ -5,6 +5,10 @@
   @include spacing-standard;
   border-bottom: 1px solid $dark;
 
+  &__menu {
+    color: $white;
+  }
+
   &__title {
     font-weight: $font-weight-title;
   }
@@ -16,5 +20,6 @@
     text-align: center;
     color: $white;
     font-weight: $font-weight-title;
+    cursor: pointer;
   }
 }
