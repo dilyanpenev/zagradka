@@ -1,8 +1,11 @@
 @import "../helpers/mixins.scss";
 
 .site-header {
-    @include space-between;
-    @include spacing-standard;
-    border-bottom: 1px solid $dark;
+  @include space-between;
+  @include spacing-standard;
+  border-bottom: 1px solid $dark;
+
+  &__title {
+    font-weight: $font-weight-title;
   }
-  
+}

@@ -2,3 +2,9 @@
 
 @import "./components/header";
 @import "./components/game-view";
+
+body {
+    margin: 0;
+    font-family: $font-family-general;
+    font-weight: $font-weight-general;
+}

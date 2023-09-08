@@ -5,7 +5,7 @@ const HeaderBanner = () => {
         <header>
             <div className="site-header">
                 <span></span> {/* TODO Menu view */}
-                <span>zaGradka</span>
+                <span className='site-header__title'>zaGradka</span>
                 <span>?</span> {/* TODO Help view */}
             </div>
         </header>
