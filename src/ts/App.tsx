@@ -4,6 +4,8 @@ import '../scss/App.scss';
 import { getTodaysCity } from './helpers/api';
 import { useAppDispatch } from './hooks/storeHooks';
 import { setTodaysAnswer } from './reducers/answerSlice';
+import { changeView } from './reducers/viewSlice';
+import { Views } from './constants/reducer-enums';
 import HeaderBanner from './components/HeaderBanner';
 import Wrapper from './views/Wrapper';
 
@@ -13,6 +15,7 @@ const App = () => {
     const fetchData = async () => {
       const data = await getTodaysCity();
       dispatch(setTodaysAnswer(data));
+      dispatch(changeView(Views.GAME));
     }
     fetchData();
   }, []);
