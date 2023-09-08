@@ -6,7 +6,7 @@ const HeaderBanner = () => {
             <div className="site-header">
                 <span></span> {/* TODO Menu view */}
                 <span className='site-header__title'>zaGradka</span>
-                <span>?</span> {/* TODO Help view */}
+                <span className='site-header__help'>?</span> {/* TODO Help view */}
             </div>
         </header>
     );

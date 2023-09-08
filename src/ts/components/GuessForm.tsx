@@ -45,7 +45,7 @@ const GuessForm = () => {
                 return feature ? "има" : "няма";
             case "POPULATION":
             case "ALTITUDE":
-                return feature.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                return feature.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
             default:
                 return feature;
         }
