@@ -20,8 +20,7 @@ app.get('/city-api/getTodaysCity', (_req, res) => {
     const rng = seedrandom(new Date().toISOString().slice(0, 10));
     const randomNumber = rng();
     const todayIndex = Math.floor(randomNumber * 257)
-    // TODO add .skip(todayIndex) when DB is populated
-    CityModel.findOne().select().exec((err, result) => {
+    CityModel.findOne().skip(todayIndex).select().exec((err, result) => {
         if (err) {
             res.json(err);
         }
